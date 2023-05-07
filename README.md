@@ -2,7 +2,7 @@
 
 # xxAI.art
 
-* [كود الواجهة الأمامية](https://github.com/xxai-art/web)
+كود الواجهة الأمامية للموقع مفتوح المصدر ، ومرحبًا بك للمساعدة في تحسين الترجمة
 
 * [كود الواجهة الأمامية](https://github.com/xxai-art/web)
 * [حزم اللغات للموقع ككل](https://github.com/xxai-art/web/tree/main/i18n)
