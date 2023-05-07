@@ -7,3 +7,4 @@
 * [كود الواجهة الأمامية](https://github.com/xxai-art/web)
 * [حزم اللغات للموقع ككل](https://github.com/xxai-art/web/tree/main/i18n)
 * [حزم اللغات لوحدات تسجيل الدخول](https://github.com/wacpkg/user/tree/main/ui.i18n)
+* [التوثيق متعدد اللغات للموقع](https://github.com/xxai-doc)
