@@ -2,13 +2,13 @@
 
 [@ w5 / coffee_plus](http://npmjs.com/@w5/coffee_plus) ، أضف بعض الميزات على أساس بناء جملة coffeescript ، راجع [coffee_plus](./coffee_plus.md) .
 
-* إعلان متغير
+## إعلان متغير
 
 ```
 + var1, var2
 ```
 
-* تسمية الإعلان
+## تسمية الإعلان
 
 `:$` للاستخدام مع [svelte](https://svelte.dev/docs#component-format-script-3-$-marks-a-statement-as-reactive) .
 
@@ -90,7 +90,7 @@ $ : (func = function() {
 });
 ```
 
-* استيراد سريع
+## استيراد سريع
 
 ```
 > zx/globals:
