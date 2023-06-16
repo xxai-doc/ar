@@ -1,10 +1,10 @@
 <p align="center"><a href="https://xxai.art"><img src="https://cdn.jsdelivr.net/gh/xxai-art/doc/logo.svg"/></a><br/><a href="https://xxai.art"><img src="https://cdn.jsdelivr.net/gh/xxai-art/doc/xxai.svg"/></a></p><p align="center"><a href="https://github.com/xxai-art/doc#readme"><img alt="I18N" src="https://cdn.jsdelivr.net/gh/wactax/img/t.svg"/></a>　<a href="https://groups.google.com/u/0/g/xxai-art"><img alt="Google Groups" src="https://cdn.jsdelivr.net/gh/wactax/img/g-groups.svg"/></a></p>
 
-# xxAI.art
+يوصى بتثبيت nodejs و [direnv](https://direnv.net) و [bun](https://github.com/oven-sh/bun) أولاً ثم `direnv allow` بعد إدخال الدليل (سيتم تنفيذ [envrc](https://github.com/xxai-art/doc/blob/main/.envrc) تلقائيًا بعد دخول الدليل).
 
-جزء من كود موقع الويب مفتوح المصدر ، مرحبًا بك للمساعدة في تحسين الترجمة.
+المعنى هو: الترجمة الصينية إلى الترجمة اليابانية والكورية والإنجليزية والإنجليزية لجميع اللغات الأخرى. إذا كنت تريد دعم اللغة الصينية والإنجليزية فقط ، فيمكنك فقط كتابة `zh: en` .
 
-## كود الواجهة الأمامية
+المعنى هو: الترجمة الصينية إلى الترجمة اليابانية والكورية والإنجليزية والإنجليزية لجميع اللغات الأخرى. إذا كنت تريد دعم اللغة الصينية والإنجليزية فقط ، فيمكنك فقط كتابة `zh: en` .
 
 * [كود الواجهة الأمامية](https://github.com/xxai-art/web)
 * [حزم اللغات للموقع ككل](https://github.com/xxai-art/web/tree/main/i18n)
@@ -31,15 +31,15 @@
 
 ### تعليمات أتمتة ترجمة المستندات
 
-انظر المستودع [xxai-art / doc](https://github.com/xxai-art/doc)
+انظر مستودع الأكواد [xxai-art / doc](https://github.com/xxai-art/doc)
 
-يوصى بتثبيت nodejs و [direnv](https://direnv.net) و [bun](https://github.com/oven-sh/bun) أولاً ، ثم تشغيل `direnv allow` بعد دخول الدليل.
+يوصى بتثبيت nodejs و [direnv](https://direnv.net) و [bun](https://github.com/oven-sh/bun) أولاً ثم `direnv allow` بعد إدخال الدليل (سيتم تنفيذ [envrc](https://github.com/xxai-art/doc/blob/main/.envrc) تلقائيًا بعد دخول الدليل).
 
-من أجل تجنب المستودعات الكبيرة جدًا المترجمة إلى مئات اللغات ، قمت بإنشاء مستودع رموز منفصل لكل لغة وأنشأت منظمة لتخزين هذا المستودع
+من أجل تجنب ترجمة قاعدة التعليمات البرمجية الكبيرة إلى مئات اللغات ، قمت بإنشاء قاعدة رمز منفصلة لكل لغة وأنشأت منظمة لتخزين قاعدة التعليمات البرمجية
 
-سيؤدي تعيين متغير البيئة `GITHUB_ACCESS_TOKEN` ثم تشغيل [create.github.coffee](https://github.com/xxai-art/doc/blob/main/create.github.coffee) إلى إنشاء المستودع تلقائيًا.
+سيؤدي تعيين متغير البيئة `GITHUB_ACCESS_TOKEN` ثم تشغيل [create.github.coffee](https://github.com/xxai-art/doc/blob/main/create.github.coffee) إلى إنشاء مستودع الكود تلقائيًا.
 
-بالطبع ، يمكنك أيضًا وضعها في المستودع.
+بالطبع ، يمكنك أيضًا وضعه في قاعدة التعليمات البرمجية.
 
 مرجع نص الترجمة [run.sh](https://github.com/xxai-art/doc/blob/main/run.sh)
 
@@ -71,4 +71,8 @@ zh: ja ko en
 export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
 ```
 
-سينشئ نص الترجمة ذاكرة تخزين مؤقت للترجمة في دليل `.i18n` ، يرجى التحقق منه `git status` وإضافته إلى مستودع الكود لتجنب الترجمات المتكررة.
+سينشئ نص الترجمة ذاكرة تخزين مؤقت مترجمة في دليل `.i18n` ، يرجى التحقق منه `git status` وإضافته إلى مستودع الكود لتجنب الترجمات المتكررة.
+
+يرجى تشغيل `bunx i18n` في كل مرة تقوم فيها بتعديل الترجمة لتحديث ذاكرة التخزين المؤقت.
+
+إذا تم تعديل النص الأصلي والترجمة في نفس الوقت ، فسيتم الخلط بين ذاكرة التخزين المؤقت ، لذلك إذا كنت تريد التعديل ، يمكنك فقط تعديل واحد ، ثم تشغيل `bunx i18n` لتحديث ذاكرة التخزين المؤقت.
