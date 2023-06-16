@@ -28,3 +28,47 @@
 * [@ w5 / i18n](https://www.npmjs.com/package/@w5/i18n)
 
   ملفات اللغة لترجمة مواقع الويب التي تم إنشاؤها بواسطة `yaml` .
+
+### تعليمات أتمتة ترجمة المستندات
+
+انظر المستودع [xxai-art / doc](https://github.com/xxai-art/doc)
+
+يوصى بتثبيت nodejs و [direnv](https://direnv.net) و [bun](https://github.com/oven-sh/bun) أولاً ، ثم تشغيل `direnv allow` بعد دخول الدليل.
+
+من أجل تجنب المستودعات الكبيرة جدًا المترجمة إلى مئات اللغات ، قمت بإنشاء مستودع رموز منفصل لكل لغة وأنشأت منظمة لتخزين هذا المستودع
+
+سيؤدي تعيين متغير البيئة `GITHUB_ACCESS_TOKEN` ثم تشغيل [create.github.coffee](https://github.com/xxai-art/doc/blob/main/create.github.coffee) إلى إنشاء المستودع تلقائيًا.
+
+بالطبع ، يمكنك أيضًا وضعها في المستودع.
+
+مرجع نص الترجمة [run.sh](https://github.com/xxai-art/doc/blob/main/run.sh)
+
+يتم تفسير كود البرنامج النصي على النحو التالي:
+
+[bunx](https://bun.sh/docs/cli/bunx) هو بديل لـ npx ، وهو أسرع. بالطبع ، إذا لم يكن لديك كعكة مثبتة ، فيمكنك استخدام `npx` بدلاً من ذلك.
+
+`bunx mdt zh` يعرض `.mdt` في الدليل zh كـ `.md` ، راجع الملفين المرتبطين أدناه
+
+* [القهوة_plus.mdt](https://github.com/xxai-doc/zh/blob/main/coffee_plus.mdt)
+* [القهوة_plus.md](https://github.com/xxai-doc/zh/blob/main/coffee_plus.md)
+
+`bunx i18n` هو الكود الأساسي للترجمة (إذا كان لديك فقط `nodejs` مثبتة ، ولكن لم يتم تثبيت `bun` و `direnv` ، يمكنك أيضًا تشغيل `npx i18n` للترجمة).
+
+سيقوم بتحليل [i18n.yml](https://github.com/xxai-art/doc/blob/main/i18n.yml) ، يكون تكوين `i18n.yml` في هذا المستند كما يلي:
+
+```
+en:
+zh: ja ko en
+```
+
+المعنى هو: الترجمة الصينية إلى الترجمة اليابانية والكورية والإنجليزية والإنجليزية لجميع اللغات الأخرى. إذا كنت تريد دعم اللغة الصينية والإنجليزية فقط ، فيمكنك فقط كتابة `zh: en` .
+
+الأخير هو [gen.README.coffee](https://github.com/xxai-art/doc/blob/main/gen.README.coffee) ، الذي يستخرج المحتوى بين العنوان الرئيسي والعنوان الفرعي الأول لكل لغة `README.md` لإنشاء إدخال `README.md` . الكود بسيط للغاية ، يمكنك النظر إليه بنفسك.
+
+يستخدم Google API للترجمة المجانية. إذا لم تتمكن من الوصول إلى Google ، فيرجى تكوين وكيل وتعيينه ، مثل:
+
+```
+export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
+```
+
+سينشئ نص الترجمة ذاكرة تخزين مؤقت للترجمة في دليل `.i18n` ، يرجى التحقق منه `git status` وإضافته إلى مستودع الكود لتجنب الترجمات المتكررة.
